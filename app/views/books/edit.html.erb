@@ -1,5 +1,13 @@
 
 <h2>New book</h2>
+
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>件のerrorが発生しました
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
 <%= form_with model:@book, url:"/books/#{@book.id}", local:true do |f| %>
 <!--<form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="qLkOaK7WrUbu0WQmdJaEKATadQBLWSaeG+guslR5l+csoZjbzc6QJQWUzGtFv/2X4wRCvCoOqG2Jj+ZHLAECLg==" />-->
 
@@ -16,8 +24,10 @@
   </div>
 
   <div class="actions">
-    <%= f.submit 'Create Book' %>
+    <%= f.submit 'Update Book' %>
     <!--<input type="submit" name="commit" value="Create Book" data-disable-with="Create Book" />-->
+    <%= link_to "show", "/books/#{@book.id}" %>
+    <%= link_to "Back", "/books" %>
   <% end %>
   </div>
 

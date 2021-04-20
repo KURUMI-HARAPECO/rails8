@@ -3,5 +3,5 @@
 <h2>Body</h2>
    <p><%= @book.body %></p>
 <%= link_to "Edit", edit_book_path(@book.id) %>
-<%= link_to "削除", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<%= link_to "Back", "/books" %>
 <!--投稿詳細画面：投稿された本の感想を個別に表示する画面-->
